@@ -1,0 +1,318 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* ─── Base ───────────────────────────────────────────────────── */
+:root { 
+  color-scheme: light;
+  /* Light theme variables */
+  --bg: #FAFBFC;
+  --surface: #FFFFFF;
+  --surface-sub: #F5F7FA;
+  --border: #E8ECF1;
+  --text-primary: #0F172A;
+  --text-secondary: #64748B;
+  --text-muted: #94A3B8;
+}
+
+[data-theme="dark"] {
+  color-scheme: dark;
+  /* Dark theme variables */
+  --bg: #0A0E1A;
+  --surface: #151B2E;
+  --surface-sub: #1E2842;
+  --border: #2D3748;
+  --text-primary: #F1F5F9;
+  --text-secondary: #94A3B8;
+  --text-muted: #64748B;
+}
+
+/* Force remove any purple from autofill and selections */
+*:focus,
+*:active,
+*::selection,
+button:focus,
+button:active {
+  outline-color: #1E40AF !important;
+}
+
+*::selection {
+  background-color: rgba(30,64,175,0.2) !important;
+  color: inherit !important;
+}
+
+*,
+*::before,
+*::after { box-sizing: border-box; }
+
+html, body, #root {
+  height: 100%;
+  margin: 0;
+  padding: 0;
+  background-color: var(--bg);
+  color: var(--text-primary);
+  transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+body {
+  font-family: 'Inter', system-ui, sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  overflow: hidden;
+}
+
+/* ─── Scrollbars ─────────────────────────────────────────────── */
+::-webkit-scrollbar        { width: 6px; height: 6px; }
+::-webkit-scrollbar-track  { background: var(--surface-sub); }
+::-webkit-scrollbar-thumb  { background: var(--border); border-radius: 6px; }
+::-webkit-scrollbar-thumb:hover { background: var(--text-muted); }
+
+[data-theme="dark"] ::-webkit-scrollbar-track  { background: #0A0E1A; }
+[data-theme="dark"] ::-webkit-scrollbar-thumb  { background: #2D3748; }
+[data-theme="dark"] ::-webkit-scrollbar-thumb:hover { background: #475569; }
+
+/* ─── Ticker tape ────────────────────────────────────────────── */
+.ticker-wrap {
+  overflow: hidden;
+  width: 100%;
+  mask-image: linear-gradient(to right, transparent, black 40px, black calc(100% - 40px), transparent);
+  -webkit-mask-image: linear-gradient(to right, transparent, black 40px, black calc(100% - 40px), transparent);
+}
+.ticker-inner {
+  display: flex;
+  width: max-content;
+  animation: tickerScroll 45s linear infinite;
+}
+.ticker-inner:hover { animation-play-state: paused; }
+@keyframes tickerScroll {
+  0%   { transform: translateX(0); }
+  100% { transform: translateX(-50%); }
+}
+
+/* ─── Inputs & Selects ───────────────────────────────────────── */
+.input-base {
+  background: var(--surface);
+  border: 1.5px solid var(--border);
+  border-radius: 8px;
+  color: var(--text-primary);
+  font-size: 12px;
+  font-family: 'Inter', sans-serif;
+  font-weight: 500;
+  padding: 7px 12px;
+  outline: none;
+  transition: all 0.2s ease;
+  cursor: pointer;
+}
+.input-base:hover { border-color: var(--text-muted); }
+.input-base:focus { 
+  border-color: #1E40AF; 
+  background: var(--surface);
+  box-shadow: 0 0 0 3px rgba(30,64,175,0.1);
+}
+.input-base option { background: var(--surface); }
+
+/* ─── Buttons ────────────────────────────────────────────────── */
+.btn-primary {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  background: linear-gradient(135deg, #1E40AF 0%, #3B82F6 100%);
+  color: #fff;
+  border: none;
+  border-radius: 10px;
+  padding: 9px 18px;
+  font-size: 13px;
+  font-weight: 600;
+  font-family: 'Inter', sans-serif;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  white-space: nowrap;
+  box-shadow: 0 2px 8px rgba(30,64,175,0.25);
+}
+.btn-primary:hover:not(:disabled) {
+  transform: translateY(-1px);
+  box-shadow: 0 4px 16px rgba(30,64,175,0.35);
+}
+.btn-primary:active:not(:disabled) {
+  transform: translateY(0px);
+}
+.btn-primary:disabled {
+  background: var(--border);
+  color: var(--text-muted);
+  cursor: not-allowed;
+  box-shadow: none;
+}
+
+/* ─── Shimmer skeleton ───────────────────────────────────────── */
+.skeleton {
+  background: linear-gradient(90deg, var(--surface-sub) 25%, var(--border) 50%, var(--surface-sub) 75%);
+  background-size: 800px 100%;
+  animation: shimmer 2s infinite linear;
+  border-radius: 12px;
+  border: none;
+}
+@keyframes shimmer {
+  0%   { background-position: -400px 0; }
+  100% { background-position:  400px 0; }
+}
+
+/* ─── ApexCharts overrides ───────────────────────────────────── */
+.apexcharts-canvas { background: transparent !important; }
+
+.apexcharts-tooltip {
+  background: var(--surface) !important;
+  border: 1.5px solid var(--border) !important;
+  border-radius: 12px !important;
+  color: var(--text-primary) !important;
+  box-shadow: 0 8px 24px rgba(15,23,42,0.12) !important;
+  font-family: 'Inter', sans-serif !important;
+  font-size: 11px !important;
+}
+.apexcharts-tooltip-title {
+  background: var(--surface-sub) !important;
+  border-bottom: 1px solid var(--border) !important;
+  padding: 8px 12px !important;
+  font-size: 10px !important;
+  color: var(--text-secondary) !important;
+  font-weight: 600 !important;
+}
+.apexcharts-xaxistooltip {
+  background: var(--surface) !important;
+  border: 1.5px solid var(--border) !important;
+  color: var(--text-primary) !important;
+  border-radius: 8px !important;
+  font-size: 10px !important;
+  font-family: 'Inter', sans-serif !important;
+  box-shadow: 0 4px 12px rgba(15,23,42,0.08) !important;
+}
+.apexcharts-xaxistooltip-bottom::before,
+.apexcharts-xaxistooltip-bottom::after { 
+  border-bottom-color: var(--border) !important; 
+}
+
+.apexcharts-menu {
+  background: var(--surface) !important;
+  border: 1.5px solid var(--border) !important;
+  border-radius: 12px !important;
+  box-shadow: 0 4px 16px rgba(15,23,42,0.08) !important;
+}
+.apexcharts-menu-item {
+  color: var(--text-primary) !important;
+}
+.apexcharts-menu-item:hover { 
+  background: var(--surface-sub) !important; 
+}
+
+/* Fix ApexCharts toolbar icons visibility */
+.apexcharts-toolbar svg { 
+  fill: var(--text-secondary) !important;
+  transition: fill 0.2s ease;
+}
+.apexcharts-toolbar svg:hover { 
+  fill: #1E40AF !important;
+}
+
+/* Fix ApexCharts grid and axis for both themes */
+.apexcharts-gridline {
+  stroke: var(--border) !important;
+}
+
+.apexcharts-xaxis-tick,
+.apexcharts-yaxis-tick {
+  stroke: var(--border) !important;
+}
+
+.apexcharts-xaxis text,
+.apexcharts-yaxis text {
+  fill: var(--text-secondary) !important;
+}
+
+.apexcharts-legend-text {
+  color: var(--text-secondary) !important;
+}
+
+/* ─── Recharts overrides ─────────────────────────────────────── */
+.recharts-default-tooltip {
+  background: var(--surface) !important;
+  border: 1.5px solid var(--border) !important;
+  border-radius: 12px !important;
+  font-family: 'Inter', sans-serif !important;
+  font-size: 11px !important;
+  color: var(--text-primary) !important;
+  box-shadow: 0 8px 24px rgba(15,23,42,0.12) !important;
+  padding: 8px 12px !important;
+}
+.recharts-tooltip-label { 
+  color: var(--text-secondary) !important; 
+  font-size: 10px !important; 
+  font-weight: 600 !important;
+  margin-bottom: 4px !important;
+}
+.recharts-legend-item-text { 
+  font-size: 11px !important; 
+  font-family: 'Inter', sans-serif !important; 
+  color: var(--text-secondary) !important;
+}
+
+/* Fix recharts grid and axis colors for both themes */
+.recharts-cartesian-grid-horizontal line,
+.recharts-cartesian-grid-vertical line {
+  stroke: var(--border) !important;
+  opacity: 0.5;
+}
+
+.recharts-cartesian-axis-tick-value {
+  fill: var(--text-secondary) !important;
+}
+
+.recharts-cartesian-axis-line,
+.recharts-cartesian-axis-tick-line {
+  stroke: var(--border) !important;
+}
+
+/* ─── Range input ────────────────────────────────────────────── */
+input[type='range'] {
+  -webkit-appearance: none;
+  height: 6px;
+  background: var(--border);
+  border-radius: 4px;
+  outline: none;
+}
+input[type='range']::-webkit-slider-thumb {
+  -webkit-appearance: none;
+  width: 16px; height: 16px;
+  border-radius: 50%;
+  background: linear-gradient(135deg, #1E40AF 0%, #3B82F6 100%);
+  cursor: pointer;
+  box-shadow: 0 2px 8px rgba(30,64,175,0.3);
+  transition: all 0.2s ease;
+}
+input[type='range']::-webkit-slider-thumb:hover {
+  transform: scale(1.1);
+  box-shadow: 0 4px 12px rgba(30,64,175,0.4);
+}
+
+/* ─── Force override any remaining purple colors ────────────── */
+button:focus-visible,
+button:focus,
+.btn-primary:focus,
+input:focus-visible,
+select:focus-visible {
+  outline: 2px solid #1E40AF !important;
+  outline-offset: 2px;
+}
+
+/* Remove any browser default purple/blue highlights */
+button::-moz-focus-inner {
+  border: 0;
+}
+
+button:focus:not(:focus-visible) {
+  outline: none;
+}
+
+/* Override any default focus rings */
+:focus-visible {
+  outline: 2px solid #1E40AF !important;
+  outline-offset: 2px;
+}
