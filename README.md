@@ -1,4 +1,4 @@
-﻿<div align="center">
+<div align="center">
 
 <img src="assets/banner.png" alt="FinanceIQ Banner" width="100%"/>
 
@@ -49,11 +49,11 @@ https://github.com/aswa2212/FinanceIQ/blob/main/assets/demo.webp
     <td><img src="assets/screenshots/technical.png" alt="Technical Analysis Tab" width="100%"/></td>
   </tr>
   <tr>
-    <td align="center"><b>📈 Multi-Ticker Charts (MSFT)</b></td>
+    <td align="center"><b>💼 Portfolio Optimization</b></td>
     <td align="center"><b>⚠️ Risk Analytics</b></td>
   </tr>
   <tr>
-    <td><img src="assets/screenshots/technical_msft.png" alt="Technical MSFT" width="100%"/></td>
+    <td><img src="assets/screenshots/portfolio.png" alt="Portfolio Optimization Tab" width="100%"/></td>
     <td><img src="assets/screenshots/risk.png" alt="Risk Analytics Tab" width="100%"/></td>
   </tr>
 </table>
