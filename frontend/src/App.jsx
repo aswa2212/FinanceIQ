@@ -73,8 +73,8 @@ function MarketIndicesBar({ tickers }) {
   return (
     <div className="h-14 border-b border-[var(--border)] bg-[var(--surface)]/90 backdrop-blur-sm flex items-center px-8 overflow-hidden gap-8 select-none shrink-0 z-10 shadow-soft">
       <div className="flex items-center gap-3 shrink-0">
-        <span className="w-2.5 h-2.5 rounded-full bg-bull animate-pulse shadow-bull-glow" />
-        <span className="text-xs font-bold tracking-wide" style={{ color: '#1E40AF' }}>LIVE MARKET</span>
+        <span className="w-2.5 h-2.5 rounded-full bg-accent animate-pulse shadow-accent-glow" />
+        <span className="text-xs font-bold tracking-wide" style={{ color: '#1E40AF' }}>DEMO MODE</span>
       </div>
       <div className="h-6 w-px bg-[var(--border)] shrink-0" />
       <div className="flex items-center gap-8 overflow-hidden flex-1 ticker-wrap">
@@ -298,15 +298,23 @@ export default function App() {
     let active = true;
     setOverviewLoading(true);
     const getOverview = () => {
+      console.log('[Overview] Fetching data for period:', overviewPeriod);
       fetch(`/api/overview?period=${overviewPeriod}&n_intervals=0`)
-        .then(res => res.json())
+        .then(res => {
+          console.log('[Overview] Response status:', res.status);
+          return res.json();
+        })
         .then(data => {
+          console.log('[Overview] Data received:', data);
           if (active) {
             setOverviewData(data);
             setOverviewLoading(false);
           }
         })
-        .catch(() => { if (active) setOverviewLoading(false); });
+        .catch((error) => { 
+          console.error('[Overview] Fetch error:', error);
+          if (active) setOverviewLoading(false); 
+        });
     };
     getOverview();
     const reload = setInterval(getOverview, 60000);
@@ -372,13 +380,30 @@ export default function App() {
   // ─── Tab 5: ML Predictions Pipeline ──────────────────────────────────────
   const runMlModel = () => {
     setMlTraining(true);
-    fetch(`/api/ml?ticker=${ticker}`)
-      .then(res => res.json())
+    console.log('[ML] Starting model training for ticker:', ticker);
+    
+    // Add timeout to prevent infinite loading
+    const controller = new AbortController();
+    const timeoutId = setTimeout(() => controller.abort(), 90000); // 90 second timeout
+    
+    fetch(`/api/ml?ticker=${ticker}`, { signal: controller.signal })
+      .then(res => {
+        clearTimeout(timeoutId);
+        console.log('[ML] Response status:', res.status);
+        if (!res.ok) throw new Error(`HTTP ${res.status}`);
+        return res.json();
+      })
       .then(data => {
+        console.log('[ML] Model training complete:', data);
         setMlData(data);
         setMlTraining(false);
       })
-      .catch(() => setMlTraining(false));
+      .catch((error) => {
+        clearTimeout(timeoutId);
+        console.error('[ML] Training failed:', error);
+        setMlTraining(false);
+        alert(`ML model training failed: ${error.message}\n\nThis might be due to insufficient data or a timeout. Try selecting a different ticker or refreshing the page.`);
+      });
   };
 
   useEffect(() => {
@@ -472,8 +497,8 @@ export default function App() {
         {/* Right Header System Controls */}
         <div className="flex items-center gap-4 shrink-0">
           <div className="flex items-center gap-3 bg-[var(--surface-sub)] px-4 py-2.5 rounded-xl">
-            <span className={`w-2.5 h-2.5 rounded-full ${isConnected ? 'bg-bull animate-pulse shadow-bull-glow' : 'bg-bear'}`} />
-            <span className="text-[var(--text-secondary)] font-semibold text-xs">{isConnected ? 'LIVE' : 'OFFLINE'}</span>
+            <span className={`w-2.5 h-2.5 rounded-full ${isConnected ? 'bg-accent animate-pulse shadow-accent-glow' : 'bg-bear'}`} />
+            <span className="text-[var(--text-secondary)] font-semibold text-xs">{isConnected ? 'CONNECTED' : 'OFFLINE'}</span>
           </div>
           
           {/* Download Report Button */}
@@ -1509,16 +1534,22 @@ export default function App() {
             <div className="bg-[var(--surface-sub)] border border-[var(--border)] rounded-lg p-3 text-xs text-[var(--text-muted)] space-y-2">
               <div className="flex justify-between">
                 <span>Feed Status</span>
-                <span className="text-bull font-bold">CONNECTED</span>
+                <span className="text-accent font-bold">SIMULATION</span>
               </div>
               <div className="flex justify-between">
-                <span>Latency</span>
-                <span className="text-secondary">11ms</span>
+                <span>Update Interval</span>
+                <span className="text-secondary">3s</span>
               </div>
               <div className="flex justify-between">
-                <span>Clock cycle</span>
-                <span className="text-secondary">3s interval</span>
+                <span>Data Source</span>
+                <span className="text-secondary text-[10px]">Yahoo Finance</span>
               </div>
+            </div>
+            
+            {/* Data Disclaimer */}
+            <div className="bg-[var(--bg)] border border-[var(--border)] rounded-lg p-3 text-[10px] text-[var(--text-muted)] leading-relaxed">
+              <div className="font-bold text-[var(--text-secondary)] mb-1">⚠️ DEMO PROJECT</div>
+              <div>Historical market data with simulated price movements. Not for trading decisions.</div>
             </div>
           </div>
         </aside>

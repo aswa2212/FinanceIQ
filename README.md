@@ -17,6 +17,8 @@ A **production-grade, end-to-end financial data science project** designed to de
 
 This project tackles a **real-world problem**: _Can we use machine learning and quantitative analysis to make better investment decisions?_
 
+> **⚠️ IMPORTANT DISCLAIMER:** This is a **demonstration/educational project** using **historical market data** from Yahoo Finance with simulated price movements. It is **NOT connected to live market feeds** and should **NOT be used for actual trading decisions**. The dashboard is designed to showcase data science, machine learning, and full-stack development skills for portfolio/internship purposes.
+
 ---
 
 ## 🎯 Key Features
@@ -29,7 +31,9 @@ This project tackles a **real-world problem**: _Can we use machine learning and 
 | **ML Prediction** | XGBoost, Random Forest, ARIMA, LSTM + backtesting | scikit-learn, XGBoost, TF |
 | **Risk Analytics** | VaR, CVaR, Sharpe, Beta, Drawdown, Stress Testing | scipy, numpy |
 | **Portfolio Optimization** | Markowitz + Monte Carlo (10k simulations) | scipy, cvxpy |
-| **Dashboard** | 4-tab interactive app with live charts | Plotly Dash |
+| **Dashboard** | 4-tab interactive app with simulated live updates | Plotly Dash, FastAPI, React |
+
+> **📊 Data Source:** Historical market data via Yahoo Finance API. Dashboard simulates "live" price movements (±0.06% random walk every 3 seconds) for demonstration purposes only.
 
 ---
 

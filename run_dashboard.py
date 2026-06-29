@@ -28,9 +28,9 @@ def run():
     
     processes = []
     try:
-        # 1. Start FastAPI Backend on port 8000
+        # 1. Start FastAPI Backend on port 8000 with extended timeout
         print("[LAUNCH] Starting FastAPI backend on http://localhost:8000 ...")
-        backend_cmd = [sys.executable, "-m", "uvicorn", "backend.main:app", "--port", "8000", "--host", "127.0.0.1"]
+        backend_cmd = [sys.executable, "-m", "uvicorn", "backend.main:app", "--port", "8000", "--host", "127.0.0.1", "--timeout-keep-alive", "120"]
         backend_proc = subprocess.Popen(
             backend_cmd,
             cwd=str(ROOT),
