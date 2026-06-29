@@ -280,9 +280,9 @@ Monte Carlo simulation generates **10,000 random portfolios** to map the full ri
 
 <div align="center">
 
-**Built for Data Science Internship — 2025**
-Made with ❤️ using Python · FastAPI · React
+**Designed & Built by [Aswajith](https://zinlu.in)**
 
+[![Portfolio](https://img.shields.io/badge/Portfolio-zinlu.in-6366f1?style=for-the-badge&logo=firefox&logoColor=white)](https://zinlu.in)
 [![GitHub](https://img.shields.io/badge/View%20on-GitHub-181717?style=for-the-badge&logo=github)](https://github.com/aswa2212/FinanceIQ)
 
 </div>
