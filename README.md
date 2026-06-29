@@ -1,282 +1,288 @@
-# 🏦 Advanced Finance Data Science Project
-## Stock Market Intelligence, Risk Analytics & Portfolio Optimization
-### Internship Portfolio Project
+﻿<div align="center">
+
+<img src="assets/banner.png" alt="FinanceIQ Banner" width="100%"/>
+
+<br/>
+
+# FinanceIQ — Stock Market Intelligence Platform
+
+**End-to-end financial data science · From raw market data to interactive dashboard**
+
+[![Python](https://img.shields.io/badge/Python-3.11-3776AB?style=for-the-badge&logo=python&logoColor=white)](https://www.python.org/)
+[![FastAPI](https://img.shields.io/badge/FastAPI-0.110-009688?style=for-the-badge&logo=fastapi&logoColor=white)](https://fastapi.tiangolo.com/)
+[![React](https://img.shields.io/badge/React-19-61DAFB?style=for-the-badge&logo=react&logoColor=black)](https://react.dev/)
+[![Vite](https://img.shields.io/badge/Vite-8-646CFF?style=for-the-badge&logo=vite&logoColor=white)](https://vitejs.dev/)
+[![XGBoost](https://img.shields.io/badge/XGBoost-ML-FF6600?style=for-the-badge&logo=xgboost&logoColor=white)](https://xgboost.readthedocs.io/)
+[![License](https://img.shields.io/badge/License-MIT-22c55e?style=for-the-badge)](LICENSE)
+
+[![Stars](https://img.shields.io/github/stars/aswa2212/FinanceIQ?style=social)](https://github.com/aswa2212/FinanceIQ/stargazers)
+[![Forks](https://img.shields.io/github/forks/aswa2212/FinanceIQ?style=social)](https://github.com/aswa2212/FinanceIQ/network/members)
+[![Issues](https://img.shields.io/github/issues/aswa2212/FinanceIQ)](https://github.com/aswa2212/FinanceIQ/issues)
+
+</div>
 
 ---
 
-[![Python](https://img.shields.io/badge/Python-3.11-blue?logo=python)](https://www.python.org/)
-[![Jupyter](https://img.shields.io/badge/Jupyter-Notebook-orange?logo=jupyter)](https://jupyter.org/)
-[![Plotly](https://img.shields.io/badge/Plotly-Dash-purple?logo=plotly)](https://dash.plotly.com/)
-[![XGBoost](https://img.shields.io/badge/ML-XGBoost-green)](https://xgboost.readthedocs.io/)
+> **⚠️ Educational Disclaimer:** This is a **portfolio / internship demonstration project** using historical market data from Yahoo Finance with simulated price movements. It is **not** connected to live market feeds and should **not** be used for actual trading decisions.
 
 ---
 
-## 📋 Project Overview
+## 📽️ Live Demo
 
-A **production-grade, end-to-end financial data science project** designed to demonstrate applied skills across the full ML lifecycle — from raw data acquisition to interactive dashboard deployment.
+<div align="center">
 
-This project tackles a **real-world problem**: _Can we use machine learning and quantitative analysis to make better investment decisions?_
+https://github.com/aswa2212/FinanceIQ/blob/main/assets/demo.webp
 
-> **⚠️ IMPORTANT DISCLAIMER:** This is a **demonstration/educational project** using **historical market data** from Yahoo Finance with simulated price movements. It is **NOT connected to live market feeds** and should **NOT be used for actual trading decisions**. The dashboard is designed to showcase data science, machine learning, and full-stack development skills for portfolio/internship purposes.
-
----
-
-## 🎯 Key Features
-
-| Module | Description | Technologies |
-|--------|-------------|-------------|
-| **Data Pipeline** | Downloads 5+ years of OHLCV data for 12 S&P 500 stocks | yfinance, pandas |
-| **EDA** | Correlations, distributions, volume/volatility patterns | Plotly, seaborn |
-| **Feature Engineering** | 25+ technical indicators (RSI, MACD, BB, ATR, OBV, ...) | Custom Python |
-| **ML Prediction** | XGBoost, Random Forest, ARIMA, LSTM + backtesting | scikit-learn, XGBoost, TF |
-| **Risk Analytics** | VaR, CVaR, Sharpe, Beta, Drawdown, Stress Testing | scipy, numpy |
-| **Portfolio Optimization** | Markowitz + Monte Carlo (10k simulations) | scipy, cvxpy |
-| **Dashboard** | 4-tab interactive app with simulated live updates | Plotly Dash, FastAPI, React |
-
-> **📊 Data Source:** Historical market data via Yahoo Finance API. Dashboard simulates "live" price movements (±0.06% random walk every 3 seconds) for demonstration purposes only.
+</div>
 
 ---
 
-## 🗂️ Project Structure
+## 📸 Screenshots
+
+<table>
+  <tr>
+    <td align="center"><b>📊 Market Overview</b></td>
+    <td align="center"><b>📈 Technical Analysis (AAPL)</b></td>
+  </tr>
+  <tr>
+    <td><img src="assets/screenshots/overview.png" alt="Overview Tab" width="100%"/></td>
+    <td><img src="assets/screenshots/technical.png" alt="Technical Analysis Tab" width="100%"/></td>
+  </tr>
+  <tr>
+    <td align="center"><b>📈 Multi-Ticker Charts (MSFT)</b></td>
+    <td align="center"><b>⚠️ Risk Analytics</b></td>
+  </tr>
+  <tr>
+    <td><img src="assets/screenshots/technical_msft.png" alt="Technical MSFT" width="100%"/></td>
+    <td><img src="assets/screenshots/risk.png" alt="Risk Analytics Tab" width="100%"/></td>
+  </tr>
+</table>
+
+---
+
+## ✨ Features at a Glance
+
+| Module | What it does | Technologies |
+|--------|-------------|--------------|
+| 📥 **Data Pipeline** | Downloads 5+ years of OHLCV data for 12 S&P 500 stocks, caches to CSV | `yfinance`, `pandas` |
+| 🔧 **Feature Engineering** | 25+ technical indicators — RSI, MACD, Bollinger Bands, ATR, OBV, ADX | Custom Python |
+| 🤖 **ML Prediction** | XGBoost, Random Forest, ARIMA, LSTM with backtesting & directional accuracy | `scikit-learn`, `xgboost`, `tensorflow` |
+| ⚠️ **Risk Analytics** | VaR (95/99%), CVaR, Sharpe, Sortino, Calmar, Beta, Max Drawdown, Stress Tests | `scipy`, `numpy` |
+| 💼 **Portfolio Optimization** | Markowitz Efficient Frontier + Monte Carlo (10k simulations) | `scipy`, `cvxpy` |
+| 🖥️ **Interactive Dashboard** | 5-tab real-time React app with simulated live price updates (±0.06% every 3s) | `FastAPI`, `React`, `Vite`, `Recharts` |
+| 📄 **PDF Report Generator** | One-click 7-page professional analysis report | `reportlab`, `matplotlib` |
+
+---
+
+## 🏗️ System Architecture
+
+<div align="center">
+  <img src="assets/architecture.png" alt="FinanceIQ Architecture" width="90%"/>
+</div>
 
 ```
-Real-world Data Project (Finance)/
+FinanceIQ/
 │
 ├── 📓 notebooks/
-│   └── finance_analysis.ipynb    ← Master notebook (run this first!)
+│   └── finance_analysis.ipynb      ← Full EDA walkthrough
 │
 ├── 🐍 src/
-│   ├── data_loader.py            ← yfinance data pipeline
-│   ├── feature_engineering.py   ← 25+ technical indicators
-│   ├── models.py                 ← XGBoost, RF, ARIMA, LSTM
-│   ├── risk_analysis.py          ← VaR, CVaR, Sharpe, Beta, Drawdown
-│   └── portfolio.py              ← Markowitz + Monte Carlo
+│   ├── data_loader.py              ← yfinance pipeline + CSV cache
+│   ├── feature_engineering.py     ← 25+ technical indicators
+│   ├── models.py                   ← XGBoost, RF, ARIMA, LSTM
+│   ├── risk_analysis.py            ← VaR, CVaR, Sharpe, Drawdown
+│   └── portfolio.py                ← Markowitz + Monte Carlo
 │
-├── 🖥️ dashboard/
-│   └── app.py                    ← Interactive Plotly Dash app
+├── 🖥️ backend/
+│   ├── main.py                     ← FastAPI REST API (:8000)
+│   └── pdf_generator.py            ← PDF report engine
+│
+├── ⚛️ frontend/
+│   └── src/
+│       └── App.jsx                 ← React dashboard (:5173)
 │
 ├── 📊 data/
-│   ├── raw/                      ← Downloaded CSV files (auto-created)
-│   └── processed/                ← Engineered feature files
+│   ├── raw/                        ← Downloaded CSVs (auto-created, git-ignored)
+│   └── processed/                  ← Engineered features (git-ignored)
 │
-├── 📈 reports/
-│   └── figures/                  ← Saved charts (PNG)
-│
-├── requirements.txt
-└── README.md
+├── 🖼️ assets/                      ← README images & demo recording
+├── run_dashboard.py                ← One-command launcher
+├── generate_reports.py             ← Batch chart generator
+└── requirements.txt
 ```
 
 ---
 
-## 🚀 Quickstart
+## 🚀 Quick Start
 
-### 1. Create Environment
+### Prerequisites
+- Python 3.10+
+- Node.js 18+ (for the React frontend)
+
+### 1. Clone & Set Up Environment
 
 ```bash
+git clone https://github.com/aswa2212/FinanceIQ.git
+cd FinanceIQ
+
+# Create and activate virtual environment
 python -m venv venv
+
 # Windows
 venv\Scripts\activate
-# Linux/Mac
+
+# Linux / macOS
 source venv/bin/activate
-```
 
-### 2. Install Dependencies
-
-```bash
+# Install Python dependencies
 pip install -r requirements.txt
 ```
 
-> **Note:** If TensorFlow causes issues, install without it first — the project runs with XGBoost + ARIMA only.
-
----
-
-## 🎯 Two Ways to Run This Project
-
-### Option A: Interactive Dashboard (Recommended) 🌟
-
-Launch the **modern FastAPI + React dashboard** with real-time analytics:
+### 2. Launch the Dashboard ⭐
 
 ```bash
 python run_dashboard.py
 ```
 
-The launcher will:
-- ✅ Auto-install frontend dependencies
-- ✅ Start FastAPI backend on port 8000
-- ✅ Start React frontend on port 5173
-- ✅ Open your browser automatically
+The launcher will **automatically**:
+- ✅ Install frontend Node.js dependencies
+- ✅ Start the **FastAPI backend** on `http://localhost:8000`
+- ✅ Start the **React frontend** on `http://localhost:5173`
+- ✅ Open your browser
 
-**Dashboard Features:**
-- 📊 **Overview**: Live cumulative returns, sector heatmap, correlation matrix
-- 📈 **Technical Analysis**: Interactive candlestick charts + indicators
-- ⚠️ **Risk Analytics**: VaR gauges, drawdowns, rolling volatility
-- 💼 **Portfolio**: Efficient Frontier, allocation editor, backtest
-- 🤖 **ML Predictions**: On-demand model training & feature importance
-- 📄 **PDF Reports**: One-click download of comprehensive 7-page analysis (takes ~90 seconds)
-
-**📥 How to Download PDF Report:**
-1. Click the green **"Download Report"** button in the top-right corner
-2. An alert will explain that generation takes 60-90 seconds
-3. Wait while the system:
-   - Loads cached market data
-   - Trains ML models
-   - Runs portfolio optimization
-   - Generates professional charts
-4. PDF downloads automatically when complete
-
-**What's in the PDF:**
-- Market overview with cumulative returns & correlations
-- Risk analysis with VaR, CVaR, and drawdown charts
-- Portfolio optimization with Efficient Frontier
-- ML predictions with feature importance
-
-> **⏱️ Note**: First-time generation may take up to 2 minutes as it downloads and caches data. Subsequent reports are faster (~60-90s) using cached data.
+> **First run:** Data will be downloaded from Yahoo Finance (~2 min). Subsequent runs use the local CSV cache.
 
 ---
 
-### Option B: Jupyter Notebook Analysis 📓
+## 🛠️ All Run Modes
 
-For **exploratory data analysis** and step-by-step walkthrough:
+<details>
+<summary><b>Option A — Interactive Dashboard (recommended)</b></summary>
+
+```bash
+python run_dashboard.py
+```
+Opens the full 5-tab React dashboard at `http://localhost:5173`.
+
+</details>
+
+<details>
+<summary><b>Option B — Jupyter Notebook EDA</b></summary>
 
 ```bash
 jupyter notebook notebooks/finance_analysis.ipynb
 ```
+Step-by-step exploratory analysis with inline charts. Run all cells top-to-bottom (~10 min first run).
 
-Run all cells from top to bottom. The notebook will:
-- Download fresh market data from Yahoo Finance (~2 min)
-- Engineer 25+ technical indicators
-- Train XGBoost, Random Forest models (~5-10 min)
-- Generate risk reports (VaR, CVaR, Sharpe, Drawdown)
-- Optimize portfolios (Markowitz, Monte Carlo)
-- Print executive summary with actionable insights
+</details>
 
-**Use the notebook when you want to:**
-- 📚 Learn the data science process step-by-step
-- 🔬 Experiment with different models and parameters
-- 📊 Generate custom visualizations
-- 📝 Create a portfolio presentation with code + charts
-
----
-
-### Option C: Generate All Reports (One Command) 📊
-
-**Fastest way to create all charts for presentations:**
+<details>
+<summary><b>Option C — Batch Report Generator</b></summary>
 
 ```bash
 python generate_reports.py
 ```
+Generates 15–20 publication-quality charts saved to `reports/figures/`. Takes ~3–5 minutes.
 
-This will:
-- ✅ Download fresh market data
-- ✅ Generate 15-20 professional charts
-- ✅ Save all visualizations to `reports/figures/`
-- ✅ Complete in ~3-5 minutes
-
-**Generated Charts Include:**
-- Risk analysis (drawdowns, VaR distributions, rolling metrics)
-- Correlation heatmaps
-- ML predictions (XGBoost, Random Forest)
-- Feature importance charts
-- Portfolio efficient frontier
-- Strategy performance comparisons
-
-**Perfect for:**
-- 📄 Creating presentation materials
-- 📧 Sharing charts via email
-- 📝 Including in written reports
-- 🎓 Internship submissions
+</details>
 
 ---
 
-## 📊 Models & Performance
-
-| Model | Type | Strengths |
-|-------|------|-----------|
-| **XGBoost** | Gradient Boosting | Best overall accuracy, feature importance |
-| **Random Forest** | Ensemble | Robust, interpretable baseline |
-| **ARIMA** | Time Series | Classical benchmark, confidence intervals |
-| **LSTM** | Deep Learning | Sequence patterns, multi-step forecasting |
-
-**Evaluation Metrics:**
-- RMSE, MAE, MAPE — magnitude accuracy
-- **Directional Accuracy** — % of days where up/down is predicted correctly
-- Sharpe, Calmar — strategy quality after transaction costs
-
----
-
-## ⚠️ Risk Analytics
-
-Portfolio risk metrics computed for every asset:
-
-- **VaR (95%, 99%)** — Historical, Parametric, Monte Carlo
-- **CVaR / Expected Shortfall** — Expected loss beyond VaR
-- **Sharpe Ratio** — Risk-adjusted return
-- **Sortino Ratio** — Downside-risk-adjusted return
-- **Calmar Ratio** — Return over Max Drawdown
-- **Beta / Alpha** — CAPM decomposition vs S&P 500
-- **Maximum Drawdown** — Peak-to-trough loss + recovery analysis
-- **Stress Testing** — Performance during 6 major market crises
-
----
-
-## 💼 Portfolio Optimization
-
-Four strategies compared:
-
-| Strategy | Description |
-|----------|-------------|
-| **Max Sharpe** | Maximises risk-adjusted return |
-| **Min Variance** | Minimises total portfolio risk |
-| **Risk Parity** | Equal risk contribution per asset |
-| **Equal Weight** | 1/N benchmark (naive diversification) |
-
-Monte Carlo simulation generates 10,000 random portfolios to visualise the full risk-return space and validate the Efficient Frontier.
-
----
-
-## 🖥️ Dashboard Tabs
+## 📊 Dashboard Tabs
 
 | Tab | Content |
 |-----|---------|
-| **📊 Overview** | Cumulative returns, correlation matrix, sector heatmap |
-| **📈 Technical Analysis** | Candlestick + BB/SMA/EMA/RSI/MACD for any stock |
-| **⚠️ Risk Analytics** | VaR gauge, drawdown chart, rolling metrics |
-| **💼 Portfolio** | Efficient Frontier, weight allocation, backtest |
+| **📊 Overview** | Cumulative returns, correlation heatmap, sector breakdown, live ticker bar |
+| **📈 Technical** | Interactive candlestick + BB / SMA / EMA / RSI / MACD for any stock |
+| **⚠️ Risk** | VaR gauge, drawdown chart, rolling volatility, stress-test results |
+| **💼 Portfolio** | Efficient Frontier (10k Monte Carlo), weight editor, backtest metrics |
+| **🤖 Predict** | On-demand XGBoost / LSTM training, feature importance, directional accuracy |
 
 ---
 
-## 🔑 Key Findings
+## 🤖 ML Models
 
-1. **XGBoost achieves ~55–58% directional accuracy** on unseen test data, significantly above the 50% random baseline
-2. **Technology stocks are highly correlated** (ρ > 0.75), limiting diversification benefits within the sector
-3. **Max Sharpe portfolio** consistently outperforms equal-weight on a risk-adjusted basis
-4. **LSTM** captures sequential patterns but requires careful regularisation to avoid overfitting
-5. **TSLA** exhibits the highest volatility and deepest drawdowns — significant tail risk
-6. **Rolling VaR** shows volatility clustering — risk is time-varying, not constant
+| Model | Type | Key Strength |
+|-------|------|-------------|
+| **XGBoost** | Gradient Boosting | Best overall accuracy, explainable feature importance |
+| **Random Forest** | Ensemble | Robust baseline, handles noisy features well |
+| **ARIMA** | Time Series | Classical benchmark with confidence intervals |
+| **LSTM** | Deep Learning | Captures long-range sequential patterns |
+
+**Evaluation metrics:** RMSE · MAE · MAPE · **Directional Accuracy** · Sharpe · Calmar
+
+> XGBoost achieves ~**55–58% directional accuracy** on unseen test data — significantly above the 50% random baseline.
 
 ---
 
-## 🛠️ Technical Stack
+## ⚠️ Risk Metrics
+
+Every asset is evaluated with:
 
 ```
-Data          : yfinance, pandas, numpy
-ML Models     : scikit-learn, xgboost, tensorflow, pmdarima, statsmodels
-Visualisation : plotly, matplotlib, seaborn
-Dashboard     : dash, dash-bootstrap-components
-Optimization  : scipy, cvxpy
-Statistics    : scipy.stats
+VaR (95%, 99%)              Historical · Parametric · Monte Carlo
+CVaR / Expected Shortfall   Expected loss beyond VaR threshold
+Sharpe Ratio                Risk-adjusted return (annualised)
+Sortino Ratio               Downside-risk-adjusted return
+Calmar Ratio                Return ÷ Max Drawdown
+Beta / Alpha                CAPM decomposition vs. SPY benchmark
+Max Drawdown                Peak-to-trough loss + recovery days
+Stress Testing              Performance during 6 major market crises
 ```
 
 ---
 
-## 📚 References & Methodology
+## 💼 Portfolio Strategies
 
-- Markowitz, H. (1952). "Portfolio Selection." *Journal of Finance*
-- Sharpe, W. (1964). "Capital Asset Prices." *Journal of Finance*
-- XGBoost: Chen & Guestrin (2016). "XGBoost: A Scalable Tree Boosting System"
-- LSTM: Hochreiter & Schmidhuber (1997). "Long Short-Term Memory"
-- Technical Analysis: Murphy, J. (1999). *Technical Analysis of Financial Markets*
+| Strategy | Objective |
+|----------|-----------|
+| **Max Sharpe** | Maximise risk-adjusted return |
+| **Min Variance** | Minimise total portfolio volatility |
+| **Risk Parity** | Equal risk contribution per asset |
+| **Equal Weight** | 1/N naive diversification baseline |
+
+Monte Carlo simulation generates **10,000 random portfolios** to map the full risk-return space and validate the Efficient Frontier.
 
 ---
 
-*Built for Data Science Internship — 2024/2025*
+## 📈 Key Findings
+
+1. **XGBoost achieves ~55–58% directional accuracy** on unseen test data (vs. 50% random baseline)
+2. **Tech stocks are highly correlated** (ρ > 0.75), limiting within-sector diversification
+3. **Max Sharpe consistently outperforms** equal-weight on a risk-adjusted basis
+4. **TSLA** exhibits the highest volatility and deepest drawdowns — significant tail risk
+5. **Rolling VaR shows volatility clustering** — risk is time-varying, not constant
+
+---
+
+## 🛠️ Tech Stack
+
+| Layer | Technologies |
+|-------|-------------|
+| **Data** | `yfinance` · `pandas` · `numpy` |
+| **ML / Stats** | `scikit-learn` · `xgboost` · `tensorflow` · `pmdarima` · `statsmodels` |
+| **Visualisation** | `plotly` · `matplotlib` · `seaborn` · `recharts` |
+| **Backend API** | `FastAPI` · `uvicorn` |
+| **Frontend** | `React 19` · `Vite 8` · `TailwindCSS` · `ApexCharts` |
+| **Optimisation** | `scipy` · `cvxpy` |
+
+---
+
+## 📚 References
+
+- Markowitz, H. (1952). *Portfolio Selection.* Journal of Finance
+- Sharpe, W. (1964). *Capital Asset Prices.* Journal of Finance
+- Chen & Guestrin (2016). *XGBoost: A Scalable Tree Boosting System*
+- Hochreiter & Schmidhuber (1997). *Long Short-Term Memory*
+- Murphy, J. (1999). *Technical Analysis of Financial Markets*
+
+---
+
+<div align="center">
+
+**Built for Data Science Internship — 2025**
+Made with ❤️ using Python · FastAPI · React
+
+[![GitHub](https://img.shields.io/badge/View%20on-GitHub-181717?style=for-the-badge&logo=github)](https://github.com/aswa2212/FinanceIQ)
+
+</div>
