@@ -280,9 +280,10 @@ Monte Carlo simulation generates **10,000 random portfolios** to map the full ri
 
 <div align="center">
 
-**Designed & Built by [Aswajith](https://zinlu.in)**
+**Designed by Aswajith**
 
-[![LinkedIn](https://img.shields.io/badge/LinkedIn-Aswajith-0A66C2?style=for-the-badge&logo=linkedin&logoColor=white)](https://www.linkedin.com/in/aswajth-r/)
-[![GitHub](https://img.shields.io/badge/View%20on-GitHub-181717?style=for-the-badge&logo=github)](https://github.com/aswa2212/FinanceIQ)
+[![LinkedIn](https://img.shields.io/badge/LinkedIn-0A66C2?style=for-the-badge&logo=linkedin&logoColor=white)](https://www.linkedin.com/in/aswajth-r/)
+[![Portfolio](https://img.shields.io/badge/zinlu.in-6366f1?style=for-the-badge&logo=firefox&logoColor=white)](https://zinlu.in)
+[![GitHub](https://img.shields.io/badge/GitHub-181717?style=for-the-badge&logo=github&logoColor=white)](https://github.com/aswa2212/FinanceIQ)
 
 </div>
