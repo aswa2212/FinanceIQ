@@ -500,6 +500,49 @@ def get_ml_tab_predictions(ticker: str = "AAPL"):
     except Exception as e:
         raise HTTPException(status_code=500, detail=f"Error in ML pipeline: {str(e)}")
 
+@app.get("/api/download-report")
+def download_pdf_report(tickers: str = "AAPL,MSFT,NVDA,JPM"):
+    """Generate and download a comprehensive PDF report."""
+    from fastapi.responses import Response
+    
+    try:
+        # Import PDF generator
+        import sys
+        from pathlib import Path
+        backend_dir = Path(__file__).parent
+        sys.path.insert(0, str(backend_dir))
+        from pdf_generator import create_pdf_report
+        
+        # Parse tickers
+        ticker_list = [t.strip() for t in tickers.split(",") if t.strip()]
+        
+        # Generate PDF
+        try:
+            pdf_bytes = create_pdf_report(ticker_list)
+        except UnicodeEncodeError as e:
+            # This should not happen anymore after removing emojis from print statements
+            print(f"[ERROR] Unicode encoding error: {e}")
+            raise HTTPException(status_code=500, detail=f"Encoding error during PDF generation. Please check server logs.")
+        
+        # Return as downloadable file
+        filename = f"FinanceIQ_Report_{datetime.now().strftime('%Y%m%d_%H%M%S')}.pdf"
+        
+        return Response(
+            content=pdf_bytes,
+            media_type="application/pdf",
+            headers={
+                "Content-Disposition": f"attachment; filename={filename}",
+                "Content-Type": "application/pdf"
+            }
+        )
+    except HTTPException:
+        raise
+    except Exception as e:
+        print(f"[ERROR] PDF generation failed: {str(e)}")
+        import traceback
+        traceback.print_exc()
+        raise HTTPException(status_code=500, detail=f"Error generating PDF report: {str(e)}")
+
 if __name__ == "__main__":
     import uvicorn
     uvicorn.run(app, host="127.0.0.1", port=8000)

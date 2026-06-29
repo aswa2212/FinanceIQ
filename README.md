@@ -108,6 +108,25 @@ The launcher will:
 - ⚠️ **Risk Analytics**: VaR gauges, drawdowns, rolling volatility
 - 💼 **Portfolio**: Efficient Frontier, allocation editor, backtest
 - 🤖 **ML Predictions**: On-demand model training & feature importance
+- 📄 **PDF Reports**: One-click download of comprehensive 7-page analysis (takes ~90 seconds)
+
+**📥 How to Download PDF Report:**
+1. Click the green **"Download Report"** button in the top-right corner
+2. An alert will explain that generation takes 60-90 seconds
+3. Wait while the system:
+   - Loads cached market data
+   - Trains ML models
+   - Runs portfolio optimization
+   - Generates professional charts
+4. PDF downloads automatically when complete
+
+**What's in the PDF:**
+- Market overview with cumulative returns & correlations
+- Risk analysis with VaR, CVaR, and drawdown charts
+- Portfolio optimization with Efficient Frontier
+- ML predictions with feature importance
+
+> **⏱️ Note**: First-time generation may take up to 2 minutes as it downloads and caches data. Subsequent reports are faster (~60-90s) using cached data.
 
 ---
 
