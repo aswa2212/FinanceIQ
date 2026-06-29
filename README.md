@@ -84,7 +84,36 @@ pip install -r requirements.txt
 
 > **Note:** If TensorFlow causes issues, install without it first — the project runs with XGBoost + ARIMA only.
 
-### 3. Run the Jupyter Notebook
+---
+
+## 🎯 Two Ways to Run This Project
+
+### Option A: Interactive Dashboard (Recommended) 🌟
+
+Launch the **modern FastAPI + React dashboard** with real-time analytics:
+
+```bash
+python run_dashboard.py
+```
+
+The launcher will:
+- ✅ Auto-install frontend dependencies
+- ✅ Start FastAPI backend on port 8000
+- ✅ Start React frontend on port 5173
+- ✅ Open your browser automatically
+
+**Dashboard Features:**
+- 📊 **Overview**: Live cumulative returns, sector heatmap, correlation matrix
+- 📈 **Technical Analysis**: Interactive candlestick charts + indicators
+- ⚠️ **Risk Analytics**: VaR gauges, drawdowns, rolling volatility
+- 💼 **Portfolio**: Efficient Frontier, allocation editor, backtest
+- 🤖 **ML Predictions**: On-demand model training & feature importance
+
+---
+
+### Option B: Jupyter Notebook Analysis 📓
+
+For **exploratory data analysis** and step-by-step walkthrough:
 
 ```bash
 jupyter notebook notebooks/finance_analysis.ipynb
@@ -92,17 +121,47 @@ jupyter notebook notebooks/finance_analysis.ipynb
 
 Run all cells from top to bottom. The notebook will:
 - Download fresh market data from Yahoo Finance (~2 min)
-- Engineer features and train all models (~10 min with LSTM)
-- Generate all charts and risk reports
-- Print an executive summary
+- Engineer 25+ technical indicators
+- Train XGBoost, Random Forest models (~5-10 min)
+- Generate risk reports (VaR, CVaR, Sharpe, Drawdown)
+- Optimize portfolios (Markowitz, Monte Carlo)
+- Print executive summary with actionable insights
 
-### 4. Launch Interactive Dashboard
+**Use the notebook when you want to:**
+- 📚 Learn the data science process step-by-step
+- 🔬 Experiment with different models and parameters
+- 📊 Generate custom visualizations
+- 📝 Create a portfolio presentation with code + charts
+
+---
+
+### Option C: Generate All Reports (One Command) 📊
+
+**Fastest way to create all charts for presentations:**
 
 ```bash
-python dashboard/app.py
+python generate_reports.py
 ```
 
-Then open **http://localhost:8050** in your browser.
+This will:
+- ✅ Download fresh market data
+- ✅ Generate 15-20 professional charts
+- ✅ Save all visualizations to `reports/figures/`
+- ✅ Complete in ~3-5 minutes
+
+**Generated Charts Include:**
+- Risk analysis (drawdowns, VaR distributions, rolling metrics)
+- Correlation heatmaps
+- ML predictions (XGBoost, Random Forest)
+- Feature importance charts
+- Portfolio efficient frontier
+- Strategy performance comparisons
+
+**Perfect for:**
+- 📄 Creating presentation materials
+- 📧 Sharing charts via email
+- 📝 Including in written reports
+- 🎓 Internship submissions
 
 ---
 
